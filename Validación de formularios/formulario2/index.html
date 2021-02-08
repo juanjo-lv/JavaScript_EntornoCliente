@@ -6,7 +6,11 @@
     <link rel="stylesheet" href="styles.css">
     <script src="app.js"></script>
     <title>Document</title>
-    
+    <style>
+       .error{
+         border : solida 2px red;
+        }
+    </style>
 </head>
 <body>
     <h1>FORMULARIO</h1>
@@ -15,32 +19,31 @@
         <tr>
           <td>Nombre: *</td>
           <td>
-            <input type="text" name="nombre" id="nombre"/>
+            <input type="text" name="nombre" id="nombre" maxlength=15 pattern="[A-Za-z]{2,15}" title="Introducen entre 2 y 15 letras" required  />
           </td>
         </tr>
 
         <tr>
             <td>Edad *</td>
             <td>
-              <input type="text" name="edad" id="edad"/>
+              <input type="number" name="edad" id="edad" min="18" max="100" required />
             </td>
           </tr>
 
         <tr>
           <td>Telefono *</td>
           <td>
-            <input type="text" name="telefono" id="telefono" required/>
+            <input type="text" name="telefono" id="telefono" required pattern="[0-9]{9}"/>
           </td>
         </tr>
-
-
-
         </td>
 
         </tr>
 
       </table>
-
+      <p id="mensajeError">
+        
+      </p                            >
       <p>
           <input type="submit" value="Enviar" id="enviar" />   
           <input type="reset" name="Borrar" id="borrar" />  
