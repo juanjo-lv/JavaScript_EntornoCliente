@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //INSTRUCCIONES DE TIEMPO
+        /*El objeto window permite ejecutar codigo en intervalos de tiempo hay 3 metodos : setTimeout, clearTimeout, setInterval
+
+        setTimeout(<funcion>,milisecs): se indican cuantos segundos tienen que pasar para que se ejecute la funcion
+
+        clearTimeout(<variable timeout>): la asignaos un clearTimeout a una varible podemos detener su ejecucion con clearTimeout
+            
+            
+        setInterval(<funcion>,<milisegundos>): repetir una funcion cada intervalo de tiempo
+        */
+
+        function saludar() {
+            alert("Hola mundo")
+        }
+        function reloj() {
+            var fecha = new Date();
+            document.getElementById("reloj").innerHTML = fecha.getSeconds();
+        }
+        var int = setInterval(reloj,1000);
+        /*OBJETOS DEL NAVEGADOR
+        Guarda información sobre el navegador
+        No hay un estandar publico, pero la mayoria de los navegadores soportan este objeto
+
+        PROPIEDADESD DEL OBJETO NAVIGATOR
+        */
+       var texto = "";
+       //appCodeName : codename del navegador
+       texto+= "<br/>CodeName: "+navigator.appCodeName;
+
+       //appName : appName del navegador
+       texto+= "br/>AppVersion: "+navigator.appVersion;
+
+       //product: motor del navegador 
+       texto+= "<br/>Product: "+navigator.product;
+
+       //platform: la plataforma del navegador
+        texto+= "<br/>online: "+navigator.onLine;
+
+        //language: lenguaje del navegador
+        texto+= "<br/>Lenguaje: "+navigator.language;
+
+        //cookieEnabled: si las cookies estan habilitadas
+        texto+= "<br/>cookies: "+navigator.cookieEnabled;
+
+        document.getElementById("info").innerHTML=texto;
+    </script>
+    <button onclick="setTimeout(saludar,1000)">Saludos</button>
+    <button onclick="sal = setTimeout(saludar,3000)">Saluda con variable</button>
+    <button onclick="clearTimeout(sal)">Cancelar saludo</button>
+    <button onclick="clearInterval(int)">Parar Reloj</button>
+    <p id="reloj"></p>
+    <p id="info"></p>
+</body>
+</html>
