@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="location"></p>
+    <script>
+        /*OBJETO LOCATION
+       CARACTERISTICAS:
+       - Guarda la información de la URL actual
+       - NO hay un estandar, pero la mayoria de navegadores lo soportan 
+       */
+
+       //PROPIEDADES DEL OBJETO LOCATION
+
+       //href: HREF(URL) de la página 
+        // var texto ="";
+        // texto+= "<br/>Hostname: "+location.hostname;
+        // //hostname: nombre del hostname de la página
+        // texto+= "<br/>Pathname: "+location.pathname;
+        
+        // //protocol: protocolo de la página 
+        // texto+= "<br/>Protocolo: "+location.protocol;
+
+        // //hash: hash o ancla de la página (ej: www.web.com/index.html#indice)
+        // texto+= "<br/>Hash: "+location.hash;
+
+        // //host: nombre del protocolo, el hostname y el puerto
+        // texto += "<br/>Origin: "+location.origin;
+
+        // //search: querystring de la página (ej: www.web.com/index.html?user=miguel)
+        // texto += "<br/>Search: "+location.search;
+
+        // document.getElementById("location").innerHTML=texto;
+
+
+        //METODOS DEL OBJETO LOCATION
+
+        //assign(<URL>):asigna un nuevo documento a la página
+        function nuevoDocumento() {
+            location.assign("http://www.google.com");
+        }
+        //reload(): recarga la pagina
+        function recarga() {
+            location.reload();
+        }
+
+        //replace(<URL>): sustituye la pagina por otra. Desaparece su historial
+        function sustituye() {
+            location.replace("http://www.google.com");
+        }
+        location.assign("http://www.google.com");
+    </script>
+</body>
+</html>

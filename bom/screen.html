@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="pantalla"></p>
+
+    <script>
+        /*  OBJETO SCREEN
+        CARACTERISTICAS:
+        - Contiene la información de la ventana del visitante
+        - No existe un estandar público, pero la mayoria de los navegadores lo soportan
+        */
+
+        //PROPIEDADES DEL OBJETO SCREEN
+
+        var texto ="";
+
+        //Tamaño de la pantalla
+        texto += "<br/>Ancho: "+screen.width;
+        texto += "<br/>Alto: "+screen.height;
+
+        //Tamaño de la pantalla sin la barra de tareas
+
+        texto += "<br/>Ancho sin barra: "+screen.availWidth;
+        texto += "<br/>Alto sin barra: "+screen.availHeight;
+
+        //Profundidad del color de la pantalla
+        texto+="<br/>Profundidad: "+screen.colorDepth;
+
+        //Resolucion de color en bits
+        texto+="<br/>Resolucion: "+screen.pixelDepth;
+
+        document.getElementById("pantalla").innerHTML = texto;
+
+        /*OBJETO HISTORY
+        CARACTERISTICAS:
+
+        -Guarda información de las URLs visitadas por el usuario dentro de una ventana del navegador
+        -No hay un estandar publico , pero la mayoría de los navegadores soportan este objeto
+        */
+       //PROPIEDADES DEL OBJETO HISTORY
+
+       //lenght: numero de URL´s que hay en el historial
+
+       //alert("URL´s del historial: "+history.length);
+
+
+       //METODOS DEL OBJETO HISTORY
+
+       //back: carga la URL anterior de historial
+       
+       function atras() {
+           history.back();
+       }
+
+       //forward: carga la URL siguiente del historial
+
+       function adelante() {
+           history.forward();
+       }
+
+       //go (<numero(URL>)): va a una pagina concreta del historial
+       //Si indicamos un número positiva va a hacia delante un no de páginas
+       //Si indicamos un número negativo va hacia atrás un no de paginas
+       //Si le indicamos una URL va a la URL indicada
+
+       function ir() {
+           var numero = prompt("Indica un número para moverte en el historial");
+           history.go(numero);
+       }
+       
+
+       
+
+    </script>
+</body>
+</html>
