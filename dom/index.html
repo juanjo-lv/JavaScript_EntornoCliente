@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .miClase{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <p id="parrafo1">Primero parrafo</p>
+        <p id="parrafo2">Segundo parrafo</p>
+        <p id="parrafo3" class="miClase">Tercer parrafo</p>
+    </div>
+    <br/>
+
+    <button id="boton1">Cambiar texto de los parrafos</button>
+    <button id="boton2">Cambiar de los parrafos</button>
+    <button id="boton3">Quitar clases de todos los parrafos</button>
+    <script>
+        window.addEventListener("load",inicio);
+
+        function inicio() {
+            document.getElementById("cambiarTextos").addEventListener("click",cambiarText);
+            document.getElementById("cambiarClases").addEventListener("click",cambiarClases);
+            document.getElementById("quitarClases").addEventListener("click",quitarClases);
+        }
+
+        function cambiarTextos() {
+            //Seleccionar un único elemento según su ID
+            document.getElementById("parrafo1").innerHTML="Primer parrafo cambiado";
+
+            //Seleccionar todos los elementos según su etiqueta
+            document.getElementsByTagName("p")[1].innerHTML="Segundo parrafo cambiado";
+
+            //Seleccionar todos los elementos segun su clase
+            document.getElementsByClassName("miClase")[0].innerHTML="Tercer parrafo cambiado";
+
+
+        }
+
+    </script>
+</body>
+</html>
