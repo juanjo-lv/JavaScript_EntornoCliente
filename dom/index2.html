@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .miClase{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        window.addEventListener("load",inicio);
+        function inicio() {
+            document.getElementById("crearParrafo").addEventListener("click",crearParrafo);
+            document.getElementById("crearImagen").addEventListener("click",crearImagen);
+            document.getElementById("borrarUltimo").addEventListener("click",borrarUltimo);
+            document.getElementById("borrarPrimero").addEventListener("click",borrarPrimero);
+            document.getElementById("sustituir").addEventListener("click",sustituirPrimeroVacio);
+        }
+        function crearParrafo() {
+            //Crear el elemento
+            var parrafo = document.createElement("p");
+            //crear un texto, nodo texto. le pasamos el texto que queremos
+            var texto = document.createTextNode(document.getElementById("texto").value);
+            //Meter el texto al parrafo. Añadimos un hijo al parrafo
+            parrafo.appendChild(texto);
+
+            //No pertenece al documento
+
+            //Vamos a añadir el atributo clase
+            parrafo.setAttribute("class","miClase");
+
+            //Falta añadirlo a div
+            var cont = document.getElementById("div1");
+            cont.appendChild(parrafo);
+        }
+        function crearImagen() {
+            var imagen = document.createElement("img");
+        
+            //No necesitamos crear texto 
+            //Hay que incluir la ruta
+            //Utilizar un prompt
+
+            var ruta = prompt("Introduce la ruta");
+            imagen.setAttribute("alt",prompt("Introduce el texto alternativo"));
+            imagen.src=ruta;
+
+            //Añadir la imagen al contenedor div
+            var cont = document.getElementById("div1")
+            cont.appendChild(imagen)
+
+        }
+        function borrarUltimo() {
+            //Seleccionar el padre y el hijo. Primero seleccionamos el padre
+            var cont = document.getElementById("div1")
+            //Elegir el ultimo de los hijos de cont
+            var hijo = cont.lastChild;
+            //Eliminar elemento hijo
+            cont.removeChild(hijo)
+        }
+
+        function borrarPrimero() {
+            var cont = document.getElementById("div1")
+            var hijo = cont.firstChild;
+            cont.removeChild(hijo)
+        }
+        function sustituirPrimeroVacio() {
+            //accedemos al contenedor
+            var cont = document.getElementById("div1");
+            //vamos a crear un elemento y añadirle un texto
+            var parrafo = document.createElement("p")
+            var texto = document.createTextNode("Vacio");
+            parrafo.appendChild(texto);
+
+            //sustituir el elemento
+            cont.replaceChild(parrafo,cont.firstChild);
+        }
+    </script>
+    <div id="div1"></div>
+    <br/>
+    <textarea name="" id="texto" cols="30" rows="10"></textarea>
+    <br/>
+
+    <button id="crearParrafo">Crear Parrafo</button>
+    <button id="crearImagen">crear imagen</button>
+    <button id="borrarUltimo">borrar ultimo</button>
+    <button id="borrarPrimero">borrar primero</button>
+    <button id="sustituir">sustituir </button>
+</body>
+</html>
