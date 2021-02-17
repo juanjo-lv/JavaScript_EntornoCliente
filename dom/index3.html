@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+ 
+    </style>
+</head>
+<body>
+    <div id="norte">
+        <h2>Galicia</h2>
+        <ul class="lista">
+            <li>A Coruña</li>
+            <li>Lugo</li>
+            <li>Ourense</li>
+            <li>Pontevedra</li>
+        </ul>
+    </div>
+    <div id="sur">
+        <h2>Canarios</h2>
+        <ul class="lista"> 
+            <li>Tenerife</li>
+            <li>Las Palmas</li>
+        </ul>
+    </div>
+    <div id="texto"></div>
+    <script>
+        //Objetivo: al pulsar las etiquetas h2 nos va a permitir ver el elemento div y los li
+        window.addEventListener("load",inicio);
+        
+        function inicio() {
+            //les vamos a asignar a los elementos h2 de la pagina un evento click que 
+            //llame a la funcion recorrerAdelante que crearemos más tarde
+            for(var i=0;i<document.getElementsByTagName("h2").length;i++){
+                document.getElementsByTagName("h2")[i].addEventListener("click",recorrerAdelante);
+            }
+
+        }
+        //Vamos a capturar el elemento que ha llamado al elemento, para saber que h2 nos encontramos
+
+        function recorrerAdelante(e) {
+            var texto = "";
+            var h2 = e.target; //Nos dice que h2 tenemos , en cual hemos hecho click
+
+            texto += "Has elegido: "+h2.textContent;
+
+            //Acceder al padre
+
+            var padre = h2.parentElement;
+            texto+=" que está situada en el "+padre.id+"</br>"
+
+            //Seleccionar el hermano 
+
+            var ul = h2.nextELementSibling;
+            texto += "El numero de provincias es "+ul.children.length;
+
+            var hijo = ul.firstChild;
+            while(hijo!=null){
+                texto+= " "+hijo.textContent;
+                hijo = hijo.nextElementSibling;
+            }
+
+            //Escribir el texto 
+            document.getElementById("texto").innerHTML="texto"
+        }
+
+
+
+    </script>
+</body>
+</html>
