@@ -6,8 +6,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js"></script>
     <title>Document</title>
+    <style>
+        form{
+            position: absolute;
+            left: 40%;
+            top: 25%;
+            border: 1px solid black;
+            border-radius: 1rem;
+            box-shadow: black 2px 2px;
+            padding: 1.5rem;
+        }
+        label{
+            display: inline-block;
+            width: 5rem;
+            
+        }
+        input{
+            width: 8rem;
+           
+        }
+        .entrada{
+            margin: 1rem;
+        }
+        .entrada:last-of-type{
+            margin-top: 2rem    ;
+        }
+        .error{
+            border: 2px solid red;
+        }
+        
+    </style>
 </head>
 <body>
+    <form action="#" id="miFormulario">
+        <div class="entrada">
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" id="nombre" placeholder="Nombre" minlength="2" maxlength="25" pattern="[A-Za-z]{2,25}" required>
+        </div>
+
+        <div class="entrada">
+            <label for="apellido">Apellido:</label>
+            <input type="text" name="apellido" id="apellido" placeholder="Apellido" minlength="2" maxlength="30" pattern="[A-Za-z]{2,30}" required>
+        </div>
+        <div class="entrada">
+            <label for="dni">DNI:</label>
+            <input type="text" name="dni" id="dni" placeholder="Introduzca su DNI" pattern="[0-9]{8}[A-Za-z]{1}" required >
+        </div>
+        <div class="entrada">
+            <label for="telefono">Telefono:</label>
+            <input type="number" name="telefono" id="telefono" placeholder="Telefono" pattern="[0-9]{9}" required>
+        </div>
+        <div class="entrada">
+            <label for="edad">Edad:</label>
+            <input type="text" name="edad" id="edad" placeholder="Edad" pattern="[18-100]{1}">
+        </div>
+        <p id="mensajeError"></p>
+        <div class="entrada">
+            <input type="submit" value="Enviar" id="enviar" />   
+            <input type="reset" name="Borrar" id="borrar" />  
+        </div>
+
+        
+    </form>
     
 </body>
 </html>

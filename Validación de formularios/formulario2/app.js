@@ -10,7 +10,6 @@ function validaNombre(){
         if(elemento.validity.valueMissing){
             error2(elemento, "Debe introducir un nombre");
         }
-
         if(elemento.validity.patternMismatch){
             error2(elemento, "El nombre debe tener entre 2 y 15 caracteres");
         }
