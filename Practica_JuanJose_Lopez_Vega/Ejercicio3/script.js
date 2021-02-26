@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function formValidado(e) {
     borrarError();
-    if (validaNombre() && validaApellido() && validaDni() &&validaTelefono()&& validarEdad() && confirm("Pulsa aceptar")) {
+    if (validaNombre() && validaApellido() && validaDni() && validaTelefono() && validaEdad() && confirm("Pulsa aceptar")) {
         return true
     } else {
         e.preventDefault();
@@ -48,31 +48,41 @@ function validaDni() {
         if(elemento.validity.patternMismatch){
             mensajeError(elemento,"El dni son 8 numeros y una letra")
         }
+        return false
     }
+    return true
 }
-function validarTelefono() {
+function validaTelefono() {
     var elemento = document.getElementById("telefono");
     if(!elemento.checkValidity()){
        if(elemento.validity.valueMissing){
            mensajeError(elemento,"Debe introducir un telefono valido")
        }
        if(elemento.validity.patternMismatch){
-           mensajeError(elemento,"El telefono son 9 numeros")
+        console.log("ERROR")
+        mensajeError(elemento,"El telefono son 9 numeros")
        }
+       return false
     }
+    return true
 }
-function validarEdad() {
+function validaEdad(){
     var elemento = document.getElementById("edad");
     if(!elemento.checkValidity()){
        if(elemento.validity.valueMissing){
-           mensajeError(elemento,"Debe introducir un telefono valido")
+           mensajeError(elemento,"Debes de introducir una edad")
        }
-       if(elemento.validity.patternMismatch){
-           mensajeError(elemento,"la edad va entre 18 y 100 años")
+       if(elemento.validity.rangeOverflow){
+        mensajeError(elemento,"No puedes superar los 100 años")
        }
-    }
-}
+       if(elemento.validity.rangeUnderflow){
+        mensajeError(elemento,"Tienes que tener minimo 18 años")
+       }
 
+       return false
+    }
+    return true
+}
 function mensajeError(elemento, mensaje) {
     document.getElementById("mensajeError").innerHTML = mensaje;
     elemento.className = "error";

@@ -23,6 +23,7 @@
         }
         input{
             width: 8rem;
+            padding: 0.2rem;
            
         }
         .entrada{
@@ -54,11 +55,11 @@
         </div>
         <div class="entrada">
             <label for="telefono">Telefono:</label>
-            <input type="number" name="telefono" id="telefono" placeholder="Telefono" pattern="[0-9]{9}" required>
+            <input type="text" name="telefono" id="telefono" placeholder="Telefono" pattern="[0-9]{9}" required>
         </div>
         <div class="entrada">
             <label for="edad">Edad:</label>
-            <input type="text" name="edad" id="edad" placeholder="Edad" pattern="[18-100]{1}">
+            <input type="number" name="edad" placeholder="Edad" id="edad" min="18" max="100"  />
         </div>
         <p id="mensajeError"></p>
         <div class="entrada">
