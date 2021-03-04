@@ -28,21 +28,26 @@
         window.addEventListener("load", inicio);
 
         function inicio() {
-            document.getElementById("cambiarTextos").addEventListener("click", cambiarTextos);
-            document.getElementById("cambiarClases").addEventListener("click", cambiarClases);
-            document.getElementById("quitarClases").addEventListener("click", quitarClases);
+            document.getElementById("boton1").addEventListener("click", cambiarTextos);
+            document.getElementById("boton2").addEventListener("click", cambiarClases);
+            document.getElementById("boton3").addEventListener("click", quitarClases);
         }
 
         function cambiarTextos() {
             //Seleccionar un único elemento según su ID
-            document.getElementById("parrafo1").innerHTML = "Primer parrafo cambiado";
-
+            // document.getElementById("parrafo1").innerHTML = "Primer parrafo cambiado";
+            
             //Seleccionar todos los elementos según su etiqueta
-            document.getElementsByTagName("p")[1].innerHTML = "Segundo parrafo cambiado";
+            //document.getElementsByTagName("p")[1].innerHTML = "Segundo parrafo cambiado";
 
             //Seleccionar todos los elementos segun su clase
-            document.getElementsByClassName("miClase")[0].innerHTML = "Tercer parrafo cambiado";
-
+            //document.getElementsByClassName("miClase")[0].innerHTML = "Tercer parrafo cambiado";
+        
+            var elementos = document.querySelectorAll("p");
+            let cont = 0;
+            elementos.forEach(function(element,index){
+                element.innerHTML =`Parrafo ${index+1} cambiado`;
+            });
             //Seleccionar elementos dentro de otros
             var principal = document.getElementById("main");
             var parrafo1 = principal.getElementById("parrafo1");
@@ -56,7 +61,7 @@
             document.getElementById("parrafo2").className = "miClase";
         }
         function quitarClases() {
-            document.getElementById("parrafo1").setAttribute("ckass", "");
+            document.getElementById("parrafo1").setAttribute("class", "");
             document.getElementById("parrafo2").className = ""; 
             for (i = 0; i < document.getElementsByTagName("p").length; i++) {
                 document.getElementsByTagName("p")[i].className = "";
