@@ -25,7 +25,7 @@ function app() {
     }
     function cambiarColor() {
         let cont = document.querySelector("p:last-of-type");
-        cont.setAttribute("class","miClase");
+        cont.setAttribute("class","color");
 
     }
     function insertarImagen() {
