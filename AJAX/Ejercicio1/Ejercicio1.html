@@ -7,8 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    <button id="cambiaContenido">Pulsame</button>
     <div id="texto">AJAX</div>
+    <button id="cambiaContenido">Pulsame</button>
     <script>
         document.getElementById("cambiaContenido").addEventListener("click",cambiaContenido);
         function cambiaContenido() {
@@ -18,10 +18,12 @@
                     document.getElementById("texto").innerHTML=this.responseText;
                 }
                 
-            }
-        }
-        xhr.open("GET","holamundo.txt",true);
+            };
+
+            xhr.open("GET","holamundo.txt",true);
         xhr.send();
+        }
+        
     </script>
 </body>
 </html>
