@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.addEventListener("load",inicio);
+        function inicio() {
+            document.addEventListener.addEventListener("click",mostrar);
+        }
+        function mostrar() {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if(this.readyState == 4 && this.status == 400){
+                    //Al hacer Parse nos devuelve un objeto
+                    var objeto = JSON.parse(this.responseText);
+
+                    //Mostrarmos los datos
+
+                    document.getElementById("parrafo").innerHTML = objeto.nombre +
+                    "nacío en "+objeto.nacimiento+" en "+objeto.pais;
+
+                    //Si queremos convertir un objeto en cadena
+                    var cadena = JSON.stringify(objeto);
+                    document.getElementById("parafo").innerHTML += "El objeto "+objeto+
+                    " en modo cadena es "+cadena;
+                }
+                xhr.open("GET","AJAX_JSON_objeto.php",true);
+                xhr.send();
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="mostrar">Mostrar</button>
+    <p id="parrafo"></p>
+
+</body>
+</html>
