@@ -9,11 +9,13 @@
         window.addEventListener("load",inicio);
         function inicio() {
             document.getElementById("mostrar").addEventListener("click",mostrar)
+            
         }
         function mostrar() {
+            
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function () {
-                if(this.readyState == 4 && this.status == 400){
+                if(this.readyState == 4 && this.status == 200){
                     //Al hacer Parse nos devuelve un objeto
                     var objeto = JSON.parse(this.responseText);
 
@@ -24,8 +26,9 @@
 
                     //Si queremos convertir un objeto en cadena
                     var cadena = JSON.stringify(objeto);
-                    document.getElementById("parafo").innerHTML += "El objeto "+objeto+
+                    document.getElementById("parrafo").innerHTML += "El objeto "+objeto+
                     " en modo cadena es "+cadena;
+    
                 }
 
             }
