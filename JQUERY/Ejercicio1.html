@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--importando desde local-->
+    <script src="jquery.js"></script>
+    <!--importando desde remoto-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        /*SINTAXIS: $(selector).accion();*/
+        //ESPERAR LA CARGA DEL HTML
+
+        //Con función anónima
+        /*$(document).ready(function(){
+            alert("Página cargada correctamente");
+        })*/
+
+        //Función con nombre 
+        // $(document).ready(inicio);
+        // function inicio() {
+        //     alert("Pagina cargada correctamente");
+        //     document.getElementById("hola").innerHTML="Hola mundo";
+        // }
+
+            $(document).ready(inicio);
+            function inicio() {
+                //Selectores
+                /*
+                $("p") --> Por etiqueta
+                $("#primero") --> Por id
+                $(".importante") --> Por clase
+                $("p[name=primero]") --> Selector de atributo
+                */
+                //Guardar una seleccion de una variable
+                var parrafo = $("p");
+
+                //EVENTOS
+                /*
+                Texto: html, text...
+                Ratón: click, dobleclick
+                Teclado: keyup, keydown
+                Formularios: submit , change...
+                Documento/window: load , resize, scroll...
+                */
+                $("p").mouseover(function(){
+
+                    //solo afecta al seleccionado
+                    $(this).css("color","red");
+                    //afecta a todos
+                    $("p").css("color","red");    
+
+                })
+                $("p").mouseout(function(){
+                    $(this).css("color","black");s
+                }) 
+                $("p#primero").click(function(){
+                    alert("Has clickado el primer parrafo")
+                }) 
+                $("p.importante").click(function(){
+                    $(this).hide();
+                })  
+            }
+
+
+
+    </script>
+
+
+</head>
+<body>
+    <!-- <div id="hola"></div> -->
+    <p id="primero">Parrafo 1</p>
+    <p id="segundo">Parrafo 2</p>
+    <p class="importante">Parrafo 3</p>
+</body>
+</html>
