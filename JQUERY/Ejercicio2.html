@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.js"></script>
+    <script>
+        $(document).ready(inicio);
+        function inicio() {
+            /*FILTRADO DE SELECCIONES :
+            
+            .has : opera sobre elementos que contienen otros elementos
+            incluidos en el has
+            $("div.parrafos").has("p"); // devuelve div.parrafos
+
+            .not : opera sobre elementos que NO contiene otros elementos
+            en el has
+            $("p").not("importante"); // Devuelve parrafos sin clase importante
+            
+            .filter : opera en elementos que coinciden con la búsqueda
+            $("p").filter("importante"); //Devuelve los parrafos con clase importante
+
+            .find: devuelve los descendientes de un elemento
+            $("p#primero").find("span"); // devuelve los span del p#primero
+
+            .first, .last : devuelven el primer y el último elemento de una lista
+            $("p").first(); //Devuelve el primer párrafo 
+
+            .eq(numero): devuelve el elemento que coincide con la posición indicada
+            $("p").eq(5) // Devuelve el sexto parrafo 
+            */  
+
+            //ENCADENAMIENTO DE SELECCIONES 
+            $("div#textos") //Etiqueta con id = textos
+                .find("p") //solo parrafos
+                .eq(0) //Primer párrafo
+                .html("TEXTO CAMBIADO EN PRIMER PARRAFO") //Cambia el HTML
+                .end() // Restablece los elementos del parrafo
+                .eq(2) //Tercer parrafo
+                .html("TEXTO CAMBIADO EN EL TERCER PARRAFO") //cambia el html
+
+            
+        }
+    </script>
+</head>
+<body>
+    <div id="textos">
+        <p id="primero">Parrafo 1</p>
+        <p>Parrafo 2</p>
+        <h3>Titulo</h3>
+        <p class="importante">Parrafo 3</p>
+    </div>
+    
+    
+</body>
+</html>
