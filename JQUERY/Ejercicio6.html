@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.js"></script>
+    <style>
+        .origen{
+            border: 2px solid blue;
+            padding: 10px;
+        }
+        .origen,
+        .hijo{
+            padding-left: 10px;
+            color: green;
+
+        }
+        .hermano{
+            color: red;
+        }
+
+    </style>
+    <script>
+        $(document).ready(inicio);
+        function inicio() {
+            //.append .prepend : añade/mueve elementos como HIJOS
+            //.before .after: añade/mueve elementos como HERMANOS
+
+            alert("Creamos estructura con append/before/after");
+
+            $("div")
+                .append("<div class='hijo'>1.Append</div>")
+                .prepend("<div class='hijo'>2.Prepend</div>")
+                .before("<div class='hermano'>3.Before</div>")
+                .after("<div class='hermano'>4.After</div>")
+            
+            alert("Movemos el primer elemento al final");
+            //$(elemento).appendTo(destino);
+
+            $("ul li:first").appendTo("ul");
+            alert("Movemos el primer elemento al final otra vez");
+
+            //$(destino).append(elemento)
+            $("ul").append($("ul li:first"));
+            
+            //CLONAR ELEMENTOS
+            alert("Clonamos el primer elemento y lo añadimos al final");
+            $("ul li:first").clone().appendTo("ul");
+            
+            // Crear elementos
+            var enlace1 = $("<a href='http://www.google.es'>Mi enlace</a>")
+            //otra forma de crearlo
+
+            var enlace2 = $('<a/>',{
+                html : "mi <strong>otro<strong>enlace",
+                "class" : "nuevo",
+                href: "http://www.google.es"    
+            });
+
+            alert("Añadimos el primer enlace");
+            $("p").append(enlace1)
+
+            alert("Añadimos el segundo enlace")
+            enlace2.appendTo($("p"));
+
+            alert("añadimos el tercer enlace después de ul");
+            enlace2.insertAfter("ul");
+
+            $("li").after("<li>Nuevo li</li>") //Crea y añade a la vez
+
+            //ELIMINAR ELEMENTOS
+            //$(elemento).remove(); Borra el elemento y sus hijos
+
+            alert("Borramos la lista");
+            $("ul").remove();
+
+            //$(elemento).empty(): Borra el contenido (hijos) del elemento
+            alert("Borramos los hijos del div")
+            $("div.origen").empty();
+            
+        }
+    </script>
+</head>
+<body>
+    <div class="origen">Texto del div</div>
+    <ul>
+        
+        <li>Elemento 1</li>
+        <li>Elemento 2</li>
+        <li>Elemento 3</li>
+        <li>Elemento 4</li>
+    </ul>
+</body>
+</html>
